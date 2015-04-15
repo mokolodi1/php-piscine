@@ -1,0 +1,7 @@
+<- Vertex ----------------------------------------------------------------------
+This class handles mathematical vertexes.
+
+An instance is constructed with a dictionary containing 'x', 'y', and 'z'. Sometimes also contained are 'w' which represents the length (default = 1), and 'color' which represents the color (default = new white).
+
+This class does not have public methods, so essentially each Vertex is immutable.
+---------------------------------------------------------------------- Vertex ->
