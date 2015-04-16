@@ -1,0 +1,56 @@
+Must use each thing in j06, j07, j08
+
+.class.php files can only contain a class
+must be accompanied by a .doc.txt
+
+Grid is 150 by 100
+Enemies start in opposite corners
+There have to be obstacles to stop the ships from moving around/allow them to hide from fire
+A boat that leaves the board or that touches an obstacle is eliminated
+
+The players take turns activating their ships
+Ships have to do the following in this order:
+- order phase
+- movement phase
+- firing phase
+As soon as all the ships have been activated, a new turn starts
+
+Ship characteristics:
+- name
+- size
+- sprite
+- health points (5 a good average)
+- PP (points de puissance): to go faster, to reinforce shields, to feed the crew (10 a good average)
+- speed (can be raised using PP) (scout = 20, huge = 10)
+- manuverability: number of squares straight to turn right or left; amount of inertia
+- shield: amount of damange it can take before losing health (0 at activation, can be increased with PP)
+- weapons: each ship has one or two weapons, damage given by PP
+
+Order phase
+- all PP given out in the previous turn set to 0
+- 1PP to speed allows 1D6 more movement
+- 1PP to shields adds one shield point
+- 1PP to weapons allows 1D6 fires with that weapon
+- to heal: ship must not move; 1PP = 1D6 of health (1 point restored with a 6)
+
+Movement phrase
+- a turn turns the ship 90 degrees either direction
+- a ship turns around the middle of the ship
+- a ship not moving can turn once for free before starting to move
+- a ship can only move the number of squares corresponding to speed
+- a ship must always move a number of squares greater than or equal to its characteristic manouver (??)
+- if a ship moves exactly the number of times it moved last turn, it can stay still
+- a ship not moving can stay that way
+- a non-moving ship can only move less than it's characteristic manouver. If it does this it will not be considered not moving next turn.
+- a ship can turn each time it moves more than it's manuverability score
+- a ship that hits another stops immidiately and cannot move anymore nor shoot (it will be immobile next turn) (it also takes some damage: page 9, second to last paragraph)
+- a ship that hits an obstacle or exits the playing area is destroyed and eliminated
+
+Firing phase
+- each PP gives another 1D6 for that weapon
+- certain weapons have a number of charges by default at the beginning of each turn
+- to fire, the ship must have a line of sight to the target
+- given a line of sight, the number of dice is equal to the charges for that weapon
+- the success rates are defined as (short range = 4+; medium range = 5+; long range = 6)
+- each I need to reread the last bit
+
