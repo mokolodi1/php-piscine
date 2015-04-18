@@ -1,0 +1,44 @@
+<html>
+  <head>
+	<title>Javascript</title>
+  </head>
+  <body>
+	<div id="balloon" style="height: 200px; width: 200px; background-color: red; border-radius: 10000px;"></div>
+	<script>
+		var diameter = 200;
+		var colorArray = ["red", "green", "blue"];
+		var currentColor = 0;
+		var myBalloon = document.getElementById("balloon");
+
+		var setColor = function() {
+			if (currentColor < 0)
+				currentColor = 2;
+			else if (currentColor > 2)
+				currentColor = 0;
+			myBalloon.style.backgroundColor = colorArray[currentColor];
+		}
+
+		var setSize = function () {
+			if (diameter < 200 || diameter > 420)
+				diameter = 200
+			myBalloon.style.width = diameter + "px";
+			myBalloon.style.height = diameter + "px";
+		}
+
+		myBalloon.addEventListener("click", function() {
+			diameter += 10;
+			currentColor++;
+			setSize();
+			setColor();
+		});
+
+		myBalloon.addEventListener("mouseleave", function() {
+			diameter -= 5;
+			currentColor--;
+			setSize();
+			setColor();
+		});
+
+	</script>
+  </body>
+</html>

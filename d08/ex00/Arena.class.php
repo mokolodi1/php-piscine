@@ -1,23 +1,26 @@
 <?php
 
 include_once('OnScreen.class.php');
+include_once('Obstacle.class.php');
+include_once('Scout.class.php');
+
 
 class Arena {
-	public $width;
-	public $height;
-	public $onScreens = array();
+	private $_width;
+	private $_height;
+	private $_onScreens = array();
 
 	public function __construct() {
-		$this->width = 100;
-		$this->height = 150;
+		$this->_width = 150;
+		$this->_height = 100;
 	}
 
-	public function addShip($ship) {
-		$this->onScreens[] = $ship;
+	public function addOnScreen($ship) {
+		$this->_onScreens[] = $ship;
 	}
 	
 	public function getTileContents($x, $y) {
-		foreach ( $this->onScreens as $current ) {
+		foreach ( $this->_onScreens as $current ) {
 			if ($current->isOccupying($x, $y)) {
 				return $current;
 			}
@@ -27,16 +30,22 @@ class Arena {
 	
 	public function __toString() {
 		$drawables = "";
-		foreach( $this->onScreens as $current ) {
+		foreach( $this->getOnScreens() as $current ) {
 			$drawables = $drawables . " " . $current;
 		}
 		return sprintf("Arena[ width: %d ; height: %d ; onScreens: [%s]"
-						, $this->width, $this->height, $drawables);
+						, $this->_width, $this->_height, $drawables);
 	}
-	
-	public function isInBounds($x, $y) {
-		return ($x >= 0 && $x < $this->width && $y >= 0 && $y < $this->height);
+
+	public function destroyShip($ship) {
+		if (($key = array_search($ship, $this->_onScreens)) !== false){	
+ 			   unset($this->_onScreens[$key]);
+			}
 	}
+
+	public function getHeight() {		return $this->_height;		}
+	public function getWidth() {		return $this->_width;		}
+	public function getOnScreens() {	return $this->_onScreens;	}
 }
 
 ?>
