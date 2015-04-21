@@ -1,0 +1,14 @@
+<- Obstacle ----------------------------------------------------------------------
+
+The Obstacle class represents an obstacle on the field.
+
+
+Public functions:
+
+doc() :: returns this file
+
+__construct() :: sets up a new Obstacle
+
+No public functions!
+
+---------------------------------------------------------------------- Obstacle ->
