@@ -1,0 +1,63 @@
+<html>
+  <head>
+	<title>Javascript</title>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+	<script>
+	$( document ).ready(function() {
+
+		var tryMe = document.getElementById("try_me");
+		
+		/*window.setInterval(function(){
+			alert("Please, use me...");
+		}, 30000);*/
+
+		var show = function(text) {
+			console.log(text);
+			alert(text);
+		}
+
+		$( "#tryMe" ).click(function(e) {
+
+		});
+
+		$( "#tryMe" ).click(function() {
+			firstText = $( "#left_number" ).val();
+			firstValue = parseInt(firstText, 10);
+
+			secondText = $( "#right_number" ).val();
+			secondValue = parseInt(secondText, 10);
+
+			operatorValue = $( "#operator" ).val();
+			
+			var result = eval(firstValue + operatorValue + secondValue);
+			if ((isNaN(firstValue) || isNaN(secondValue) || isNaN(result))
+				|| (firstValue < 0 || secondValue < 0)
+				|| (firstText !== firstValue.toString() || secondText !== secondValue.toString()))
+			{
+				/*
+				** I'm aware the pdf didn't tell us to also print to console,
+				** but I think this is what they meant.
+				*/
+				show("Error :(");
+			} else if ((operatorValue === "%" || operatorValue === "/") && (secondValue === 0)) {
+				show("It's over 9000!");
+			} else {
+				show(result);
+			}
+		});
+	});
+	</script>
+  </head>
+  <body>
+	<input id="left_number" />
+	<select id="operator">
+		<option value="+">+</option>
+		<option value="-">-</option>
+		<option value="*">*</option>
+		<option value="/">/</option>
+		<option value="%">%</option>
+	</select>
+	<input id="right_number" />
+	<input id="try_me" type="submit" value="Try me!"/>
+  </body>
+</html>

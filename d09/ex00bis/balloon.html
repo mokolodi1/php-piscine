@@ -1,0 +1,45 @@
+<html>
+  <head>
+	<title>Javascript</title>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+	<script type="text/javascript">
+	$( document ).ready(function() {
+		var diameter = 200;
+		var colorArray = ["red", "green", "blue"];
+		var currentColor = 0;
+
+		var setColor = function(balloon) {
+			if (currentColor < 0)
+				currentColor = 2;
+			else if (currentColor > 2)
+				currentColor = 0;
+			balloon.style.backgroundColor = colorArray[currentColor];
+		}
+
+		var setSize = function (balloon) {
+			if (diameter < 200 || diameter > 420)
+				diameter = 200
+			balloon.style.width = diameter + "px";
+			balloon.style.height = diameter + "px";
+		}
+
+		$( "#balloon" ).click(function(e) {
+			diameter += 10;
+			currentColor++;
+			setSize(e.target);
+			setColor(e.target);
+		});
+
+		$( "#balloon" ).mouseleave(function(e) {
+			diameter -= 5;
+			currentColor--;
+			setSize(e.target);
+			setColor(e.target);
+		});
+	});
+	</script>
+  </head>
+  <body>
+	<div id="balloon" style="height: 200px; width: 200px; background-color: red; border-radius: 10000px;"></div>
+  </body>
+</html>
